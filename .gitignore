@@ -1,0 +1,50 @@
+# Angular-specific ignores
+movies-client/dist/
+movies-client/tmp/
+movies-client/out-tsc/
+movies-client/bazel-out/
+movies-client/node_modules
+movies-client/npm-debug.log
+movies-client/yarn-error.log
+# Java-specific ignores
+movies-api/HELP.md
+movies-api/target/
+!movies-api/.mvn/wrapper/maven-wrapper.jar
+!movies-api/**/src/main/**/target/
+!movies-api/**/src/test/**/target/
+movies-api/build/
+!movies-api/**/src/main/**/build/
+!movies-api/**/src/test/**/build/
+# Ignore IDE settings across projects
+**/.idea/
+**/.project
+**/.classpath
+**/.factorypath
+**/.settings/
+**/*.launch
+# Visual Studio Code settings
+**/.vscode/
+**/.vscode/*
+**/.history/*
+# Angular-specific caches
+movies-client/.angular/cache
+movies-client/.sass-cache/
+movies-client/coverage
+# Java-specific caches (STS, IntelliJ, and NetBeans)
+movies-api/.apt_generated
+movies-api/.springBeans
+movies-api/.sts4-cache
+movies-api/*.iws
+movies-api/*.iml
+movies-api/*.ipr
+movies-api/nbproject/private/
+movies-api/nbbuild/
+movies-api/dist/
+movies-api/nbdist/
+movies-api/.nb-gradle/
+# System files
+.DS_Store
+Thumbs.db
+libpeerconnection.log
+testem.log
+typings/
