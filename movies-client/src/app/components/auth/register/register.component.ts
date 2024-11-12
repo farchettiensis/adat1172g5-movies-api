@@ -17,6 +17,7 @@ export class RegisterComponent {
     password: '',
     role: UserRole.USER
   }
+  confirmPassword: string = "";
   userRoleOptions: SelectItem[] = [
     {label: 'Usuário', value: UserRole.USER},
     {label: 'Administrador', value: UserRole.ADMIN},
@@ -36,6 +37,22 @@ export class RegisterComponent {
   async save(): Promise<void> {
     if (this.isSubmitting) return;
 
+    if (!this.user.login || !this.user.password || !this.user.role || !this.confirmPassword) {
+      this.messageService.add({
+        severity: 'warn',
+        detail: 'Por favor, preencha todos os campos!'
+      });
+      return;
+    }
+
+    if (this.user.password !== this.confirmPassword) {
+      this.messageService.add({
+        severity: 'warn',
+        detail: 'As senhas não coincidem!'
+      });
+      return;
+    }
+
     this.isSubmitting = true;
     try {
       await firstValueFrom(this.authenticationService.register(this.user));
@@ -47,7 +64,7 @@ export class RegisterComponent {
     } catch (error) {
       console.error(error);
       this.messageService.add({
-        severity: 'warn',
+        severity: 'error',
         detail: 'Não foi possível realizar o cadastro!'
       });
     } finally {
