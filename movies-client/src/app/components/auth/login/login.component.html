@@ -1,0 +1,48 @@
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+  <div class="flex flex-column align-items-center justify-content-center">
+    <img alt="Image" class="mb-5" height="50" ngSrc="assets/layout/images/logo_text.svg" width="115">
+    <div
+      style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+      <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius:53px">
+        <div class="text-center mb-5">
+          <img alt="Ada logo" class="mb-5 w-6rem flex-shrink-0" src="assets/layout/images/logo_small.svg">
+          <div class="text-900 text-3xl font-medium mb-3">G5</div>
+        </div>
+
+        <div>
+          <label class="block text-900 text-xl font-medium mb-2" for="username">Usuário</label>
+          <input [(ngModel)]="user.login"
+                 class="w-full md:w-30rem mb-5"
+                 id="username"
+                 pInputText
+                 placeholder="Nome do usuário"
+                 style="padding:1rem"
+                 type="text">
+
+          <label class="block text-900 font-medium text-xl mb-2" for="password">Senha</label>
+          <p-password [(ngModel)]="user.password"
+                      [toggleMask]="true"
+                      id="password"
+                      inputStyleClass="w-full p-3 md:w-30rem"
+                      placeholder="Senha"
+                      styleClass="mb-5"></p-password>
+
+          <div class="flex align-items-center justify-content-between mb-5 gap-5">
+            <!--            <div class="flex align-items-center">-->
+            <!--              <p-checkbox [binary]="true" id="rememberme1" styleClass="mr-2"></p-checkbox>-->
+            <!--              <label for="rememberme1">Lembrar senha</label>-->
+            <!--            </div>-->
+            <a (click)="navigateToSignUp()"
+               class="font-medium no-underline ml-2 text-right cursor-pointer"
+               style="color: var(--primary-color)">Registrar-se</a>
+          </div>
+          <button (click)="login()"
+                  class="w-full p-3 text-xl"
+                  label="Entrar"
+                  pButton
+                  pRipple></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

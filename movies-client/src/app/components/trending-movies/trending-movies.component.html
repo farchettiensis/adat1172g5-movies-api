@@ -1,0 +1,76 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="card">
+      <h5>Trending Movies</h5>
+
+      <p-table
+        #dt
+        [globalFilterFields]="['title', 'releaseDate', 'overview']"
+        [paginator]="true"
+        [rowHover]="true"
+        [rows]="10"
+        [value]="trendingMovies"
+        dataKey="id"
+        responsiveLayout="scroll"
+        styleClass="p-datatable-gridlines"
+      >
+        <ng-template pTemplate="caption">
+          <div class="flex justify-content-between flex-column sm:flex-row">
+            <button
+              (click)="dt.clear()"
+              class="p-button-outlined mb-2"
+              icon="pi pi-filter-slash"
+              label="Clear"
+              pButton
+            ></button>
+            <span class="p-input-icon-left mb-2">
+              <i class="pi pi-search"></i>
+              <input
+                #globalFilter
+                (input)="dt.filterGlobal($event.target.value, 'contains')"
+                class="w-full"
+                pInputText
+                placeholder="Search movies"
+                type="text"
+              />
+            </span>
+          </div>
+        </ng-template>
+
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="title">
+              Title
+              <p-sortIcon field="title"></p-sortIcon>
+            </th>
+            <th pSortableColumn="releaseDate">
+              Release Date
+              <p-sortIcon field="releaseDate"></p-sortIcon>
+            </th>
+            <th>Overview</th>
+          </tr>
+        </ng-template>
+
+        <ng-template let-movie pTemplate="body">
+          <tr>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.releaseDate | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ movie.overview }}</td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="3">No movies found.</td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="loadingbody">
+          <tr>
+            <td colspan="3">Loading movies. Please wait.</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
