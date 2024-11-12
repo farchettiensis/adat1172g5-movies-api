@@ -40,7 +40,8 @@ export class AuthenticationService {
   }
 
   isLoggedIn(): boolean {
-    return !!this.getToken();
+    const token: string = this.getToken();
+    return token != null && !this.isTokenExpired(token);
   }
 
   logout(): void {

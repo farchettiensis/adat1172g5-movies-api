@@ -2,11 +2,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {NotfoundComponent} from './components/notfound/notfound.component';
 import {AppLayoutComponent} from "./layout/app.layout.component";
+import {authGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
   {
     path: '',
     component: AppLayoutComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: 'trending-movies',
