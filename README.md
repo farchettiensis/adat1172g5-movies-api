@@ -1,7 +1,6 @@
 # Projeto: Sistema de Filmes e Séries
 
-Este repositório é um fork do [movies-api](https://github.com/victot-exe/movies-api) que inclui o projeto front-end (
-movies-client), além do mesmo projeto Spring (movies-api) do repositório original.
+Este repositório é um fork do [movies-api](https://github.com/victot-exe/movies-api) que inclui o projeto front-end (movies-client), além do mesmo projeto Spring (movies-api) do repositório original.
 
 O projeto Angular demonstra visualmente alguns recursos da API. Para executá-lo, siga os passos abaixo:
 
